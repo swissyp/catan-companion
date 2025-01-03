@@ -1,7 +1,7 @@
 # Catan Companion
 
 <div align="center">
-  <img src="/logo.png" alt="Catan Companion Logo" width="400"/>
+  <img src="./public/logo.png" alt="Catan Companion Logo" width="600" style="max-width: 100%; height: auto;"/>
 </div>
 
 A simple web application designed to enhance your in-person Catan gaming experience. This companion app helps you generate balanced boards and track dice roll statistics during gameplay.

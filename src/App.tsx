@@ -72,7 +72,7 @@ export default function App() {
       <div className="bg-white rounded-xl shadow-xl p-4 sm:p-8 w-full max-w-4xl">
         <div className="flex flex-col gap-4 mb-6">
           <h1 className="text-4xl font-bold text-gray-900 text-center">
-            Catan Board Generator
+            Catan Companion
           </h1>
           
           <div className="flex justify-center">

@@ -1,12 +1,10 @@
+# Catan Companion
+
 <div align="center">
-  <h1>Catan Companion</h1>
   <img src="./public/logo.png" alt="Catan Companion Logo" width="400" style="max-width: 100%; height: auto; margin: 2rem 0;"/>
-  
-  <p align="center">
-    A simple web application designed to enhance your in-person Catan gaming experience.<br>
-    Generate balanced boards and track dice roll statistics during gameplay.
-  </p>
 </div>
+
+A simple web application designed to enhance your in-person Catan gaming experience. Generate balanced boards and track dice roll statistics during gameplay.
 
 ## Features
 

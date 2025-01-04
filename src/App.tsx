@@ -88,21 +88,25 @@ export default function App() {
         </div>
         
         <div className="flex flex-col lg:flex-row gap-8">
-          {gameData.state === 'playing' && (
-            <div className="lg:w-64">
-              <RollTracker
-                stats={gameData.rollStats}
-                totalRolls={gameData.totalRolls}
-                onIncrement={handleIncrement}
-                onDecrement={handleDecrement}
-              />
-            </div>
-          )}
+          <div className="lg:w-64">
+            <RollTracker
+              stats={gameData.rollStats}
+              totalRolls={gameData.totalRolls}
+              onIncrement={handleIncrement}
+              onDecrement={handleDecrement}
+              disabled={gameData.state !== 'playing'}
+            />
+          </div>
           
           <div className="flex-1">
             <Board key={boardKey} />
           </div>
         </div>
+        {gameData.state === 'setup' && (
+          <p className="text-sm text-gray-500 text-center mt-4">
+            Start a game to begin tracking dice rolls
+          </p>
+        )}
       </div>
     </div>
   );

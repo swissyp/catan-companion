@@ -5,16 +5,17 @@ import { RollStats } from '../types/game';
 interface RollTrackerProps {
   stats: RollStats;
   totalRolls: number;
+  disabled?: boolean;
   onIncrement: (num: number) => void;
   onDecrement: (num: number) => void;
 }
 
-export function RollTracker({ stats, totalRolls, onIncrement, onDecrement }: RollTrackerProps) {
+export function RollTracker({ stats, totalRolls, disabled, onIncrement, onDecrement }: RollTrackerProps) {
   const numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const maxRolls = Math.max(...Object.values(stats), 1);
 
   return (
-    <div className="w-full space-y-4">
+    <div className={`w-full space-y-4 ${disabled ? 'opacity-50' : ''}`}>
       <h2 className="text-lg font-semibold text-gray-900">
         Roll Stats (Total: {totalRolls})
       </h2>
@@ -30,15 +31,16 @@ export function RollTracker({ stats, totalRolls, onIncrement, onDecrement }: Rol
               <div className="flex items-center gap-2 w-24">
                 <button
                   onClick={() => onDecrement(num)}
-                  className="p-1 hover:bg-gray-100 rounded disabled:opacity-50"
-                  disabled={!stats[num]}
+                  className="p-1 hover:bg-gray-100 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={disabled || !stats[num]}
                 >
                   <Minus className="size-4" />
                 </button>
                 <span className="w-6 text-center font-medium">{num}</span>
                 <button
                   onClick={() => onIncrement(num)}
-                  className="p-1 hover:bg-gray-100 rounded"
+                  className="p-1 hover:bg-gray-100 rounded disabled:cursor-not-allowed"
+                  disabled={disabled}
                 >
                   <Plus className="size-4" />
                 </button>

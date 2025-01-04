@@ -46,7 +46,7 @@ export function GameControls({
         className="flex items-center gap-2 px-4 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600"
       >
         <Play className="size-4" />
-        Start New Game
+        {hasExistingGame ? 'Start New Game' : 'Start Tracking'}
       </button>
       
       {hasExistingGame && (

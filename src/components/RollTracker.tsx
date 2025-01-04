@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plus, Minus } from 'lucide-react';
+import { Plus, Minus, ChevronDown, ChevronUp } from 'lucide-react';
 import { RollStats } from '../types/game';
 
 interface RollTrackerProps {
@@ -12,15 +12,28 @@ interface RollTrackerProps {
 
 export function RollTracker({ stats, totalRolls, disabled, onIncrement, onDecrement }: RollTrackerProps) {
   const numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const [isExpanded, setIsExpanded] = React.useState(false);
   const maxRolls = Math.max(...Object.values(stats), 1);
 
   return (
     <div className={`w-full space-y-4 ${disabled ? 'opacity-50' : ''}`}>
-      <h2 className="text-lg font-semibold text-gray-900">
-        Roll Stats (Total: {totalRolls})
-      </h2>
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="w-full flex items-center justify-between text-left lg:cursor-default"
+      >
+        <h2 className="text-lg font-semibold text-gray-900">
+          Roll Stats (Total: {totalRolls})
+        </h2>
+        <div className="lg:hidden">
+          {isExpanded ? (
+            <ChevronUp className="size-5 text-gray-500" />
+          ) : (
+            <ChevronDown className="size-5 text-gray-500" />
+          )}
+        </div>
+      </button>
       
-      <div className="space-y-2">
+      <div className={`space-y-2 ${!isExpanded ? 'hidden lg:block' : ''}`}>
         {numbers.map(num => {
           const count = stats[num] || 0;
           const percentage = totalRolls > 0 ? (count / totalRolls) * 100 : 0;

@@ -88,7 +88,7 @@ export default function App() {
         </div>
         
         <div className="flex flex-col lg:flex-row gap-8">
-          <div className="lg:w-64">
+          <div className="lg:w-64 bg-white lg:bg-transparent rounded-lg shadow-sm lg:shadow-none p-4 lg:p-0">
             <RollTracker
               stats={gameData.rollStats}
               totalRolls={gameData.totalRolls}
